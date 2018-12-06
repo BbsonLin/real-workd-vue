@@ -14,9 +14,10 @@ export default new Router({
       component: EventList
     },
     {
-      path: '/event-show',
+      path: '/event/:id',
       name: 'event-show',
-      component: EventShow
+      component: EventShow,
+      props: true
     },
     {
       path: '/event-create',
