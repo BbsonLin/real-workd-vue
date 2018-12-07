@@ -1,9 +1,7 @@
 <template>
   <div>
     <h1>Event List</h1>
-    <router-link :to="{ name: 'event-show', params: { id: 1 } }"
-      >Show Event #1</router-link
-    >
+    <EventCard />
     <router-link :to="{ name: 'event-show', params: { id: 2 } }"
       >Show Event #2</router-link
     >
@@ -11,7 +9,13 @@
 </template>
 
 <script>
-export default {}
+import EventCard from '@/components/EventCard.vue'
+
+export default {
+  components: {
+    EventCard
+  }
+}
 </script>
 
 <style scoped></style>
