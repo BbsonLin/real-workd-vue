@@ -1,6 +1,7 @@
 # real-world-vue
 
 ### VSCode settings.json
+Following VueMastery Youtube Video : https://www.youtube.com/watch?v=i8IvvHJssWE
 ```
 {
     "vetur.validation.template": false,
@@ -19,6 +20,6 @@
             "autoFix": true
         }
     ],
-    "eslint.autoFixOnSave": false
+    "eslint.autoFixOnSave": true
 }
 ```
