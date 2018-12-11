@@ -7959,6 +7959,11 @@ vue@^2.5.17:
   resolved "http://registry.npm.taobao.org/vue/download/vue-2.5.17.tgz#0f8789ad718be68ca1872629832ed533589c6ada"
   integrity sha1-D4eJrXGL5oyhhyYpgy7VM1icato=
 
+vuejs-datepicker@^1.5.4:
+  version "1.5.4"
+  resolved "http://registry.npm.taobao.org/vuejs-datepicker/download/vuejs-datepicker-1.5.4.tgz#dacdb5eb5ef44342c67cb59b93a0d5da9c1809b3"
+  integrity sha1-2s216170Q0LGfLWbk6DV2pwYCbM=
+
 vuex@^3.0.1:
   version "3.0.1"
   resolved "http://registry.npm.taobao.org/vuex/download/vuex-3.0.1.tgz#e761352ebe0af537d4bb755a9b9dc4be3df7efd2"
