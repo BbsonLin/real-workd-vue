@@ -24,7 +24,7 @@
 
 <script>
 import EventCard from '@/components/EventCard.vue'
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 
 export default {
   components: {
@@ -36,7 +36,10 @@ export default {
     }
   },
   computed: {
-    ...mapState(['events', 'eventsTotal']),
+    ...mapState({
+      events: state => state.event.events,
+      eventsTotal: state => state.event.eventsTotal
+    }),
     page() {
       return parseInt(this.$route.query.page) || 1
     },
@@ -44,8 +47,11 @@ export default {
       return this.page != Math.ceil(this.eventsTotal / this.perPage)
     }
   },
+  methods: {
+    ...mapActions('event', ['fetchEvents'])
+  },
   created() {
-    this.$store.dispatch('fetchEvents', {
+    this.fetchEvents({
       perPage: this.perPage,
       page: this.page
     })
