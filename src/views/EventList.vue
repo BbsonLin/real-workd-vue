@@ -3,20 +3,20 @@
     <h1>Event List</h1>
     <EventCard v-for="event in events" :key="event.id" :event="event" />
     <template v-if="page != 1">
-      <router-link
+      <RouterLink
         :to="{ name: 'event-list', query: { page: page - 1 } }"
         rel="prev"
-        >Prev Page</router-link
+        >Prev Page</RouterLink
       >
     </template>
     <template v-if="(page != 1) & hasNextPage">
       |
     </template>
     <template v-if="hasNextPage">
-      <router-link
+      <RouterLink
         :to="{ name: 'event-list', query: { page: page + 1 } }"
         rel="next"
-        >Next Page</router-link
+        >Next Page</RouterLink
       >
     </template>
   </div>
@@ -47,14 +47,14 @@ export default {
       return this.page != Math.ceil(this.eventsTotal / this.perPage)
     }
   },
-  methods: {
-    ...mapActions('event', ['fetchEvents'])
-  },
   created() {
     this.fetchEvents({
       perPage: this.perPage,
       page: this.page
     })
+  },
+  methods: {
+    ...mapActions('event', ['fetchEvents'])
   }
 }
 </script>

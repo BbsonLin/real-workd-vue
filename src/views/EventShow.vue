@@ -43,11 +43,11 @@ export default {
       event: state => state.event.event
     })
   },
-  methods: {
-    ...mapActions('event', ['fetchEvent'])
-  },
   created() {
     this.fetchEvent(this.id)
+  },
+  methods: {
+    ...mapActions('event', ['fetchEvent'])
   }
 }
 </script>
