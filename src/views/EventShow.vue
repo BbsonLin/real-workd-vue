@@ -29,7 +29,9 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex'
+import { mapState } from 'vuex'
+import NProgress from 'nprogress'
+import store from '@/store'
 
 export default {
   props: {
@@ -43,11 +45,19 @@ export default {
       event: state => state.event.event
     })
   },
-  created() {
-    this.fetchEvent(this.id)
-  },
-  methods: {
-    ...mapActions('event', ['fetchEvent'])
+  // created() {
+  //   this.fetchEvent(this.id)
+  // },
+  // methods: {
+  //   ...mapActions('event', ['fetchEvent'])
+  // },
+  beforeRouteEnter(routeTo, routeFrom, next) {
+    console.log('beforeRouteEnter')
+    NProgress.start()
+    store.dispatch('event/fetchEvent', routeTo.params.id).then(() => {
+      NProgress.done()
+      next()
+    })
   }
 }
 </script>
