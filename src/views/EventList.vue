@@ -25,31 +25,45 @@
 <script>
 import EventCard from '@/components/EventCard.vue'
 import { mapState, mapActions } from 'vuex'
+import store from '@/store'
+
+// Need to declare this function outside, cause beforeRouteEnter Vue-Router In-Component Guards
+// can't access "this"
+function getPageEvents(routeTo, next) {
+  let currentPage = parseInt(routeTo.query.page) || 1
+  store.dispatch('event/fetchEvents', currentPage).then(() => {
+    routeTo.params.page = currentPage
+    next()
+  })
+}
 
 export default {
   components: {
     EventCard
   },
-  data() {
-    return {
-      perPage: 3
+  props: {
+    page: {
+      type: Number,
+      required: true
     }
+  },
+  beforeRouteEnter(routeTo, routeFrom, next) {
+    getPageEvents(routeTo, next)
+  },
+  beforeRouteUpdate(routeTo, routeFrom, next) {
+    getPageEvents(routeTo, next)
   },
   computed: {
     ...mapState({
       events: state => state.event.events,
       eventsTotal: state => state.event.eventsTotal
     }),
-    page() {
-      return parseInt(this.$route.query.page) || 1
-    },
     hasNextPage() {
       return this.page != Math.ceil(this.eventsTotal / this.perPage)
     }
   },
   created() {
     this.fetchEvents({
-      perPage: this.perPage,
       page: this.page
     })
   },
