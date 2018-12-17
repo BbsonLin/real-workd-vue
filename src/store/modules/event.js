@@ -64,14 +64,10 @@ const actions = {
       commit('SET_EVENT', event)
       return event
     } else {
-      return EventService.getEvent(id)
-        .then(resp => {
-          commit('SET_EVENT', resp.data)
-          return resp.data
-        })
-        .catch(err => {
-          console.error(err)
-        })
+      return EventService.getEvent(id).then(resp => {
+        commit('SET_EVENT', resp.data)
+        return resp.data
+      })
     }
   }
 }
