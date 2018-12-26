@@ -1,5 +1,7 @@
 # real-world-vue
 
+A course practice from [VueMastery](https://www.vuemastery.com/courses)
+
 ### VSCode settings.json
 Following VueMastery Youtube Video : https://www.youtube.com/watch?v=i8IvvHJssWE
 ```
