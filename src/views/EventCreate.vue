@@ -45,7 +45,10 @@
           :options="times"
         />
       </div>
-      <input type="submit" class="button -fill-gradient" value="Submit" />
+      <!-- <input type="submit" class="button -fill-gradient" value="Submit" /> -->
+      <BaseButton type="submit" button-class="-fill-gradient"
+        >Submit</BaseButton
+      >
     </form>
   </div>
 </template>
@@ -105,6 +108,9 @@ export default {
         time: '',
         attendees: []
       }
+    },
+    sendMessage() {
+      console.log('sendMessage')
     }
   }
 }
