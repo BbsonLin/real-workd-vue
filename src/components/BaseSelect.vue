@@ -1,7 +1,12 @@
 <template>
   <div>
     <label>{{ label }}</label>
-    <select v-bind="$attrs" :value="value" @input="updateValue">
+    <select
+      v-bind="$attrs"
+      :value="value"
+      @change="updateValue"
+      v-on="$listeners"
+    >
       <option v-for="option in options" :key="option">{{ option }}</option>
     </select>
   </div>
@@ -9,6 +14,7 @@
 
 <script>
 export default {
+  inheritAttrs: false,
   props: {
     label: {
       type: String,
