@@ -24,7 +24,7 @@
 
 <script>
 import EventCard from '@/components/EventCard.vue'
-import { mapState, mapActions } from 'vuex'
+import { mapState } from 'vuex'
 import store from '@/store'
 
 // Need to declare this function outside, cause beforeRouteEnter Vue-Router In-Component Guards
@@ -61,14 +61,6 @@ export default {
     hasNextPage() {
       return this.page != Math.ceil(this.eventsTotal / this.perPage)
     }
-  },
-  created() {
-    this.fetchEvents({
-      page: this.page
-    })
-  },
-  methods: {
-    ...mapActions('event', ['fetchEvents'])
   }
 }
 </script>
