@@ -1,15 +1,15 @@
 <template>
-  <router-link
+  <RouterLink
     :to="{ name: 'event-show', params: { id: event.id } }"
     class="event-link"
   >
     <div class="event-card -shadow">
-      <span class="eyebrow">@{{ event.time }} on {{ event.date }}</span>
+      <span class="eyebrow">@{{ event.time }} on {{ event.date | date }}</span>
       <h4 class="title">{{ event.title }}</h4>
       <BaseIcon name="users" />
       <span>{{ event.attendees.length }} attending</span>
     </div>
-  </router-link>
+  </RouterLink>
 </template>
 
 <script>
